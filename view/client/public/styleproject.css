@@ -1,0 +1,257 @@
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.projects-section {
+    width: 90%;
+    max-width: 1000px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+.projects-section h2 {
+    font-size: 2.2em;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+    margin-bottom: 25px;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 12px;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.project-card {
+    background: rgba(30, 30, 30, 0.9);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+    box-sizing: border-box; 
+    
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(106, 17, 203, 0.4);
+}
+
+.project-card img {
+    width: 100%;
+    height: 400px;
+    min-height: 300px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+.project-card h3 {
+    font-size: 1.2em;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    margin-bottom: 6px;
+}
+
+.project-card p {
+    font-size: 0.85em;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 10px;
+    flex-grow: 1;
+}
+
+.project-card a {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    align-self: flex-start;
+}
+
+.project-card a:hover {
+    background: linear-gradient(45deg, #2575fc, #6a11cb);
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .project-card {
+        padding: 10px;
+    }
+
+    .project-card img {
+        height: 130px;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+}
+button {
+    background: linear-gradient(45deg, #2575fc, #6a11cb);
+    color: white;
+    padding: 14px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(37, 117, 252, 0.3);
+}
+/* Ẩn modal mặc định */
+/* Định dạng nền mờ khi modal xuất hiện */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    opacity: 1;
+}
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    max-width: 90%;
+    width: auto; /* Thay fixed width bằng auto */
+    min-width: 300px; /* Thiết lập min-width */
+    max-height: 80vh; /* Giảm max-height */
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    align-items: flex-start; /* Căn theo đầu */
+}
+
+#modal-image {
+    width: auto; /* Width tự động */
+    max-width: 45%; /* Giới hạn tối đa */
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; /* Ngăn không cho co nhỏ */
+}
+
+.modal-text-content {
+    width: auto; /* Width tự động */
+    max-width: 50%; /* Giới hạn tối đa */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Cho phép mở rộng */
+    min-height: min-content; /* Chiều cao tối thiểu theo nội dung */
+}
+
+#modal-title {
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    margin-bottom: 15px; /* Giảm margin */
+    color: #2c3e50;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+#modal-description {
+    font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px; /* Giảm margin */
+    flex-grow: 0; /* Ngăn mở rộng quá mức */
+}
+
+.modal-actions {
+    margin-top: auto;
+    padding-top: 15px;
+}
+
+/* Responsive điều chỉnh */
+@media (max-width: 900px) {
+    .modal-content {
+        flex-direction: column;
+        max-width: 95%;
+        padding: 25px;
+        max-height: 90vh;
+        display: flex;
+    }
+    
+    #modal-image {
+        max-width: 100%;
+        max-height: 40vh;
+    }
+    
+    .modal-text-content {
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+    }
+    
+    .modal-actions {
+        margin-bottom: -100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 20px;
+        max-height: 95vh;
+    }
+    
+    #modal-title {
+        margin-bottom: 10px;
+    }
+    
+    #modal-description {
+        margin-bottom: 15px;
+    }
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}

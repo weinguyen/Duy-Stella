@@ -14,7 +14,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const db = () => __awaiter(void 0, void 0, void 0, function* () {
-    yield mongoose_1.default.connect("mongodb://localhost:27017/DuyStella");
+    yield mongoose_1.default.connect(process.env.MONGODB_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    });
     console.log("kết nối thành công");
 });
 exports.default = db;

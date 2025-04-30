@@ -1,10 +1,5 @@
 
-let url;
-if (window.location.hostname === "localhost") {
-    url = "http://localhost:3000";
-} else {
-    url = "https://duy-backend.onrender.com"; 
-}
+const url = "https://duy-stella.onrender.com"
 function fetchProjects() {
     fetch(url + "/project")
         .then(res => res.json())

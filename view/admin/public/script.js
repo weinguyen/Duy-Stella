@@ -1,5 +1,6 @@
 
-const url = "http://localhost:3000";
+const url = "https://duy-stella.onrender.com"
+
 function xemthongtin() {
     fetch(url + "/guest")
         .then(res => res.json())

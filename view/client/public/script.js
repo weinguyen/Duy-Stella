@@ -1,5 +1,5 @@
 //bật nhạc
-const url = "http://localhost:3000";
+const url = "https://duy-stella.onrender.com"
 
 
 document.addEventListener("DOMContentLoaded", function () {

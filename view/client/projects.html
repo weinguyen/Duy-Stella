@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách Project</title>
+    <link rel="stylesheet" href="./public/styleproject.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <video autoplay loop muted playsinline class="background-video">
+        <source src="./asset/img/4K UHD 25fps FREE Video Background Stars Space Trip.mp4" type="video/mp4">
+    </video>
+    <audio id="backgroundMusic">
+        <source src="./asset/music/Interstellar on Piano.mp3" type="audio/mpeg">
+    </audio>
+    <button onclick="goBack()" class="back-button">←</button>
+    <section id="projects" class="projects-section">
+        <h2>My Projects</h2>
+        <div class="projects-container" id="container">
+
+        </div>
+    </section>
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal() ">&times;</span>
+            <img id="modal-image" src="" alt="Project image">
+            <div class="modal-text-content">
+                <h3 id="modal-title"></h3>
+                <p id="modal-description"></p>
+
+                <div class="modal-actions">
+                    <a id="modal-github" href="#" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./public/scriptproject.js"></script>
+
+
+</body>
+
+</html>

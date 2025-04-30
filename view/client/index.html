@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wei-Stella | Portfolio</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./public/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <section>
+            <header>🚀 Wei-Stella ⭐</header>
+            <h2>Hello, I am Duy!</h2>
+            <p>Just a chill programmer who loves technology and space.</p>
+            <a href="#about" class="btn" onclick="scrollToAbout()">About Me</a>
+            <a href="./projects.html" class="btn">Projects</a>
+            <a href="#" class="btn" onclick="toggleContactForm()">Contact me</a>
+
+
+            <div class="social-links">
+                <a href="https://github.com/weinguyen" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.facebook.com/tienduy1224" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="www.linkedin.com/in/duy-tiến-b3bb72337" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Me -->
+    <div class="container">
+        <div id="about" class="about-container">
+            <div class="about-content">
+                <h2>👨‍💻 About Me</h2>
+                <p><strong>👤 Họ và tên:</strong> Nguyễn Tiến Duy</p>
+                <p><strong>💼 Vai trò:</strong> Backend Developer</p>
+                <p><strong>📜 Chứng chỉ:</strong> Coursera, ...</p>
+                <p><strong>🎮 Sở thích:</strong> Chơi game, lập trình, khám phá công nghệ</p>
+            </div>
+            <div class="about-image">
+                <img src="./asset/img/avt.jpg" alt="Duy's Photo">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Contact Form -->
+    <div id="contactForm" class="contact-form">
+        <h3>CONTACT ME 📞</h3>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="text" placeholder="Phone Number" required>
+        <textarea placeholder="Messages" rows="4" required></textarea>
+        <button type="submit" onclick="gui()">Gửi</button>
+        <button onclick="toggleContactForm()">Đóng</button>
+    </div>
+
+    <script src="./public/script.js"></script>
+</body>
+
+</html>

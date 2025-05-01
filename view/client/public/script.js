@@ -1,6 +1,5 @@
-//bật nhạc
-const url = "https://duy-stella.onrender.com"
 
+const url = "https://duy-stella.onrender.com"
 
 document.addEventListener("DOMContentLoaded", function () {
     const aboutMeSection = document.querySelector(".container.about");

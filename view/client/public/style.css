@@ -11,8 +11,11 @@ body {
     align-items: center;
     justify-content: center;
     background-image: url('../asset/img/photo-1506318137071-a8e063b4bec0.avif');
+    background-attachment: fixed;
+    background-size: cover;
 
 }
+
 
 .container {
     position: relative;

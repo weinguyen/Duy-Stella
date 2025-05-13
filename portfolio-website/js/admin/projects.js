@@ -201,7 +201,7 @@ try {
     currentProjectId = project.id
     projectDetails.innerHTML = `
             <div style="text-align: center; margin-bottom: 20px;">
-                <img src="/${project.image}" alt="${project.title}" style="max-width: 100%; max-height: 300px; border-radius: 8px;">
+                <img src="${project.image}" alt="${project.title}" style="max-width: 100%; max-height: 300px; border-radius: 8px;">
             </div>
             <div>
                 <p><strong>Title:</strong> ${project.title}</p>

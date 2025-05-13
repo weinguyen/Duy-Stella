@@ -34,8 +34,17 @@ let ProjectService = class ProjectService {
     async remove(id) {
         const project = await this.projectRespository.findOneById(id);
         if (project?.image) {
-            const filepath = path.join(__dirname, '..', '..', '..', project.image);
-            fs.promises.unlink(filepath);
+            const isUrl = project.image.startsWith('http://') ||
+                project.image.startsWith('https://');
+            if (!isUrl) {
+                const filepath = path.join(__dirname, '..', '..', '..', project.image);
+                try {
+                    await fs.promises.unlink(filepath);
+                }
+                catch {
+                    console.log('image is not exits');
+                }
+            }
         }
         await this.projectRespository.delete(id);
     }

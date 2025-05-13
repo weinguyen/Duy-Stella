@@ -1,15 +1,14 @@
-
-const url = "https://duy-stella.onrender.com"
+const url = BACKEND_URL;
 function fetchProjects() {
-    fetch(url + "/project")
-        .then(res => res.json())
-        .then(data => {
-            let projects = document.getElementById("container");
-            projects.innerHTML = "";
-            data.forEach(project => {
-                projects.innerHTML += `
+  fetch(url + '/project')
+    .then((res) => res.json())
+    .then((data) => {
+      let projects = document.getElementById('container');
+      projects.innerHTML = '';
+      data.forEach((project) => {
+        projects.innerHTML += `
                     <div class="project-card">
-                        <img src="${url + "/" + project.image}" alt="Project 3">
+                        <img src="${url + '/' + project.image}" alt="Project 3">
                         <h3>${project.title}</h3>
                         <button class="btn" 
                             data-title="${project.title}" 
@@ -19,24 +18,25 @@ function fetchProjects() {
                             onclick='openmodal(${JSON.stringify(project)})'>Xem chi tiết</button>
                     </div>
                 `;
-            });
-        })
+      });
+    });
 }
 
 function openmodal(project) {
-    document.getElementById("modal-title").textContent = project.title;
-    document.getElementById("modal-description").textContent = project.description;
-    document.getElementById("modal-github").href = project.github;
-    document.getElementById("modal-image").src = url + "/" + project.image;
-    document.getElementById("projectModal").classList.add("show");
-    document.getElementById("projectModal").style.zIndex = "9999";
+  document.getElementById('modal-title').textContent = project.title;
+  document.getElementById('modal-description').textContent =
+    project.description;
+  document.getElementById('modal-github').href = project.github;
+  document.getElementById('modal-image').src = url + '/' + project.image;
+  document.getElementById('projectModal').classList.add('show');
+  document.getElementById('projectModal').style.zIndex = '9999';
 }
 
 function closeModal() {
-    document.getElementById("projectModal").classList.remove("show");
-    document.getElementById("projectModal").style.zIndex = "-1";
+  document.getElementById('projectModal').classList.remove('show');
+  document.getElementById('projectModal').style.zIndex = '-1';
 }
 function goBack() {
-    window.history.back();
-  }
+  window.history.back();
+}
 window.onload = fetchProjects;

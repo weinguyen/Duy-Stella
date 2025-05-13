@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - My Portfolio</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h1>Admin Dashboard</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="messages.html">Messages</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="../index.html" target="_blank">View Site</a></li>
+                    <li><a href="#" id="logout-btn">Logout</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="admin-container container">
+        <div class="admin-header">
+            <h1>Welcome to Admin Dashboard</h1>
+        </div>
+
+        <div class="admin-card">
+            <h2>Overview</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
+                <div style="background-color: #3b3a3b; padding: 20px; border-radius: 8px;">
+                    <h3 style="margin-bottom: 10px;">Total Messages</h3>
+                    <p id="total-messages" style="font-size: 2rem; font-weight: bold;">0</p>
+                </div>
+                <div style="background-color: #3b3a3b; padding: 20px; border-radius: 8px;">
+                    <h3 style="margin-bottom: 10px;">Total Projects</h3>
+                    <p id="total-projects" style="font-size: 2rem; font-weight: bold;">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="admin-card">
+            <h2>Recent Messages</h2>
+            <div id="recent-messages">
+                <p class="loading">Loading recent messages...</p>
+            </div>
+            <div style="text-align: right; margin-top: 20px;">
+                <a href="messages.html" class="btn btn-primary">View All Messages</a>
+            </div>
+        </div>
+
+        <div class="admin-card">
+            <h2>Recent Projects</h2>
+            <div id="recent-projects">
+                <p class="loading">Loading recent projects...</p>
+            </div>
+            <div style="text-align: right; margin-top: 20px;">
+                <a href="projects.html" class="btn btn-primary">Manage Projects</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/admin/dashboard.js"></script>
+    <script src="../js/admin/auth.js"></script>
+</body>
+
+</html>

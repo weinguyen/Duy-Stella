@@ -13,6 +13,10 @@ const config_1 = require("@nestjs/config");
 const guest_module_1 = require("./modules/guest/guest.module");
 const project_module_1 = require("./modules/project/project.module");
 const serve_static_1 = require("@nestjs/serve-static");
+const path_1 = require("path");
+const auth_module_1 = require("./modules/auth/auth.module");
+const auth_guard_1 = require("./modules/auth/auth.guard");
+const core_1 = require("@nestjs/core");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -22,7 +26,6 @@ exports.AppModule = AppModule = __decorate([
             config_1.ConfigModule.forRoot({
                 isGlobal: true,
             }),
-            guest_module_1.GuestModule,
             typeorm_1.TypeOrmModule.forRootAsync({
                 imports: [config_1.ConfigModule],
                 inject: [config_1.ConfigService],
@@ -34,20 +37,25 @@ exports.AppModule = AppModule = __decorate([
                     password: config.get('DB_PASSWORD'),
                     database: config.get('DB_NAME'),
                     autoLoadEntities: true,
-                    synachronize: true,
+                    synchronize: true,
                 }),
             }),
             serve_static_1.ServeStaticModule.forRoot({
-                rootPath: './uploads',
+                rootPath: (0, path_1.join)(__dirname, '..', 'uploads'),
                 serveRoot: '/uploads',
             }, {
-                rootPath: './view/client',
+                rootPath: (0, path_1.join)(__dirname, '..', 'portfolio-website'),
                 serveRoot: '/',
-            }, {
-                rootPath: './view/admin',
-                serveRoot: '/admin',
             }),
+            guest_module_1.GuestModule,
             project_module_1.ProjectModule,
+            auth_module_1.AuthModule,
+        ],
+        providers: [
+            {
+                provide: core_1.APP_GUARD,
+                useClass: auth_guard_1.AuthGuard,
+            },
         ],
     })
 ], AppModule);

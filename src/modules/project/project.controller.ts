@@ -11,6 +11,7 @@ import {
 import { ProjectService } from './project.service';
 import { CreateProjectDto } from './dto/create-project.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { Public } from 'src/common/decorators/public.decorator';
 
 @Controller('project')
 export class ProjectController {
@@ -19,6 +20,7 @@ export class ProjectController {
   create(@Body() createProjectDto: CreateProjectDto) {
     return this.projectService.create(createProjectDto);
   }
+  @Public()
   @Get()
   findall() {
     return this.projectService.findAll();

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duy Stella</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h1>Duy Stella</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Main</a></li>
+                    <li><a href="#about">Introduce</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="admin/login.html" class="admin-link">Admin</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hello, I am <span class="highlight">Duy</span></h1>
+                <h2>Backend Developer</h2>
+                <p>Welcome to My Stella</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">My projects</a>
+                    <a href="#contact" class="btn btn-secondary">Contact me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="./asset/IO24 lai-09921.jpg" alt="Ảnh đại diện">
+                </div>
+                <div class="about-text">
+                    <h3>Who am I?</h3>
+                    <p>Just a child programer who love coding,space and technology</p>
+                    <h3>Experiment</h3>
+                    <p>Knowleadge in Data Structures and Algorithms</p>
+                    <p>Intern AI.Soft two month</p>
+                    <div class="skills">
+                        <h3>Skill</h3>
+                        <div class="skill-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>Node.js</span>
+                            <span>PostgreSQL</span>
+                            <span>MongoDB</span>
+                            <span>Git</span>
+                            <span>C++</span>
+                            <span>Python</span>
+                            <span>Expressjs</span>
+                            <span>Nestjs</span>
+                            <span>XamPP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">My projects</h2>
+            <div class="projects-grid" id="projects-container">
+                <div class="loading">Đang tải dự án...</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Infomation</h3>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>tienduy12241224@gmail.com</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+84 0382717845</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Ha Noi, Viet Nam</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/weinguyen" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/duy-ti%E1%BA%BFn-b3bb72337" target="_blank"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/tienduy1224" target="_blank"><i
+                                class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send a message to me</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message"></label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send a message</button>
+                    </form>
+                    <div id="form-status"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#home">Main</a>
+                    <a href="#about">Introduce</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/weinguyen" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" target="https://www.linkedin.com/in/duy-ti%E1%BA%BFn-b3bb72337"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://www.facebook.com/tienduy1224" target="_blank"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 weinguyen. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+
+</html>

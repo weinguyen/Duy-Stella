@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const project_service_1 = require("./project.service");
 const create_project_dto_1 = require("./dto/create-project.dto");
 const platform_express_1 = require("@nestjs/platform-express");
+const public_decorator_1 = require("../../common/decorators/public.decorator");
 let ProjectController = class ProjectController {
     projectService;
     constructor(projectService) {
@@ -44,6 +45,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ProjectController.prototype, "create", null);
 __decorate([
+    (0, public_decorator_1.Public)(),
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),

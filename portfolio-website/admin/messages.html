@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h1>Admin Dashboard</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="messages.html" class="active">Messages</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="../index.html" target="_blank">View Site</a></li>
+                    <li><a href="#" id="logout-btn">Logout</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="admin-container container">
+        <div class="admin-header">
+            <h1>Messages</h1>
+        </div>
+
+        <div class="admin-card">
+            <h2>All Messages</h2>
+            <div id="messages-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="messages-table-body">
+                        <tr>
+                            <td colspan="5" class="loading">Loading messages...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message View Modal -->
+    <div id="message-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Message Details</h2>
+            <div class="modal-body" id="message-details">
+
+            </div>
+            <div style="margin-top: 20px; text-align: right;">
+                <button id="delete-message-btn" class="btn delete-btn">Delete Message</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../js/admin/messages.js"></script>
+    <script type="module" src="../js/admin/auth.js"></script>
+</body>
+
+</html>

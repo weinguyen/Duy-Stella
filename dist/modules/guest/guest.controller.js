@@ -16,6 +16,7 @@ exports.GuestController = void 0;
 const common_1 = require("@nestjs/common");
 const create_guest_dto_1 = require("./dto/create-guest.dto");
 const guest_service_1 = require("./guest.service");
+const public_decorator_1 = require("../../common/decorators/public.decorator");
 let GuestController = class GuestController {
     GuestService;
     constructor(GuestService) {
@@ -33,6 +34,7 @@ let GuestController = class GuestController {
 };
 exports.GuestController = GuestController;
 __decorate([
+    (0, public_decorator_1.Public)(),
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),

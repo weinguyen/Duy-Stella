@@ -4,12 +4,15 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { GuestModule } from './modules/guest/guest.module';
 import { ProjectModule } from './modules/project/project.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import path, { dirname, join } from 'path';
+import { AuthModule } from './modules/auth/auth.module';
+import { AuthGuard } from './modules/auth/auth.guard';
+import { APP_GUARD } from '@nestjs/core';
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    GuestModule,
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -21,24 +24,29 @@ import { ServeStaticModule } from '@nestjs/serve-static';
         password: config.get<string>('DB_PASSWORD'),
         database: config.get<string>('DB_NAME'),
         autoLoadEntities: true,
-        synachronize: true,
+        synchronize: true,
       }),
     }),
     ServeStaticModule.forRoot(
       {
-        rootPath: './uploads',
+        rootPath: join(__dirname, '..', 'uploads'),
         serveRoot: '/uploads',
       },
       {
-        rootPath: './view/client',
+        rootPath: join(__dirname, '..', 'portfolio-website'),
         serveRoot: '/',
       },
-      {
-        rootPath: './view/admin',
-        serveRoot: '/admin',
-      },
     ),
+
+    GuestModule,
     ProjectModule,
+    AuthModule,
+  ],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: AuthGuard,
+    },
   ],
 })
 export class AppModule {}

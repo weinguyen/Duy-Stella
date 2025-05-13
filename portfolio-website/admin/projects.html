@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h1>Admin Dashboard</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="messages.html">Messages</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="../index.html" target="_blank">View Site</a></li>
+                    <li><a href="#" id="logout-btn">Logout</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="admin-container container">
+        <div class="admin-header">
+            <h1>Projects</h1>
+            <button id="add-project-btn" class="btn btn-primary">Add New Project</button>
+        </div>
+
+        <div class="admin-card">
+            <h2>All Projects</h2>
+            <div id="projects-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>GitHub</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="projects-table-body">
+                        <tr>
+                            <td colspan="5" class="loading">Loading projects...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Add New Project</h2>
+            <div class="modal-body">
+                <form id="project-form">
+                    <div class="form-group">
+                        <label for="project-title">Title</label>
+                        <input type="text" id="project-title" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-description">Description</label>
+                        <textarea id="project-description" name="description" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-github">GitHub URL</label>
+                        <input type="url" id="project-github" name="github" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-image">Image Upload</label>
+                        <input type="file" id="project-image" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Preview</label>
+                        <div>
+                            <img id="image-preview" class="preview-image" src="https://via.placeholder.com/300x200"
+                                alt="Preview" style="max-width: 100%; height: auto;">
+                        </div>
+                    </div>
+                    <div style="text-align: right;">
+                        <button type="submit" class="btn btn-primary">Save Project</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div id="view-project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Project Details</h2>
+            <div class="modal-body" id="project-details">
+            </div>
+            <div style="margin-top: 20px; text-align: right;">
+                <button id="delete-project-btn" class="btn delete-btn">Delete Project</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/admin/projects.js"></script>
+    <script src="../js/admin/auth.js"></script>
+</body>
+
+</html>

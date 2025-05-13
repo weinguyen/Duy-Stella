@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     projects.forEach((project) => {
       html += `
                 <tr>
-                    <td><img src="/${project.image}" alt="${project.title}" style="width: 80px; height: 50px; object-fit: cover; border-radius: 4px;"></td>
+                    <td><img src="${project.image}" alt="${project.title}" style="width: 80px; height: 50px; object-fit: cover; border-radius: 4px;"></td>
                     <td>${project.title}</td>
                     <td>${project.description.substring(0, 50)}${project.description.length > 50 ? "..." : ""}</td>
                 </tr>

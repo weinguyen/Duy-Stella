@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       projectCard.innerHTML = `
                 <div class="project-image">
-                    <img src="/${project.image}" alt="${project.title}">
+                    <img src="${project.image}" alt="${project.title}">
                 </div>
                 <div class="project-info">
                     <h3>${project.title}</h3>

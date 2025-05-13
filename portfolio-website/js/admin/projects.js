@@ -61,45 +61,62 @@ document.addEventListener("DOMContentLoaded", () => {
   if (projectForm) {
     projectForm.addEventListener("submit", async (e) => {
       e.preventDefault()
-      let img = new FormData();
-      img.append('image', document.getElementById('project-image').files[0]);
-      console.log(img)
-      const res = await fetch('/project/upload', { 
-        method: 'POST', 
-        headers: {
-          "Authorization": `Bearer ${token}`
-        },
-        body: img 
-      })
-       console.log(res)
-      const url = await res.text()
-      console.log(url)
-      const formData = {
-        title: document.getElementById("project-title").value,
-        description: document.getElementById("project-description").value,
-        github: document.getElementById("project-github").value,
-        image: url
-      }
 
-      try {
-        const response = await fetch("/project", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-             "Authorization": `Bearer ${token}`,
-          },
-          body: JSON.stringify(formData),
-        })
+const imageInput = document.getElementById('project-image').files[0];
+if (!imageInput) {
+  alert("Vui lòng chọn ảnh.");
+  return;
+}
 
-        if (!response.ok) {
-          throw new Error("Failed to add project")
-        }
-        projectModal.style.display = "none"
-        fetchProjects()
-      } catch (error) {
-        console.error("Error adding project:", error)
-        alert("Failed to add project. Please try again.")
-      }
+// Chuẩn bị FormData để gửi tới ImgBB
+let formdata = new FormData();
+formdata.append('key', '5fd16c9768b32d05ff318d4826ef0712');
+formdata.append('image', imageInput);
+
+try {
+  // Upload ảnh lên ImgBB
+  const res = await fetch('https://api.imgbb.com/1/upload', {
+    method: 'POST',
+    body: formdata
+  });
+
+  const data = await res.json();
+  if (!data.success) {
+    throw new Error("Upload ảnh thất bại: " + data.error.message);
+  }
+
+  const imageUrl = data.data.url; // URL ảnh trả về
+  console.log(imageUrl)
+  // Tạo dữ liệu project
+  const formData = {
+    title: document.getElementById("project-title").value,
+    description: document.getElementById("project-description").value,
+    github: document.getElementById("project-github").value,
+    image: imageUrl
+  };
+
+  // Gửi dữ liệu project tới server của bạn
+  const response = await fetch("/project", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`,
+    },
+    body: JSON.stringify(formData),
+  });
+
+  if (!response.ok) {
+    throw new Error("Thêm project thất bại");
+  }
+
+  projectModal.style.display = "none";
+  fetchProjects();
+
+} catch (error) {
+  console.error("Lỗi khi thêm project:", error);
+  alert("Không thể thêm project. Vui lòng thử lại.");
+}
+
     })
   }
   if (deleteProjectBtn) {
@@ -155,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const row = document.createElement("tr")
 
       row.innerHTML = `
-                <td><img src="/${project.image}" alt="${project.title}" style="width: 80px; height: 50px; object-fit: cover; border-radius: 4px;"></td>
+                <td><img src="${project.image}" alt="${project.title}" style="width: 80px; height: 50px; object-fit: cover; border-radius: 4px;"></td>
                 <td>${project.title}</td>
                 <td>${project.description.substring(0, 50)}${project.description.length > 50 ? "..." : ""}</td>
                 <td><a href="${project.github}" target="_blank">${project.github.substring(0, 30)}...</a></td>

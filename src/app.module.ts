@@ -24,7 +24,9 @@ import { APP_GUARD } from '@nestjs/core';
         password: config.get<string>('DB_PASSWORD'),
         database: config.get<string>('DB_NAME'),
         autoLoadEntities: true,
-        ssl: true,
+        ssl: {
+          rejectUnauthorized: false,
+        },
         synchronize: true,
       }),
     }),

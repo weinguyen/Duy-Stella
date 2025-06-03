@@ -24,6 +24,7 @@ import { APP_GUARD } from '@nestjs/core';
         password: config.get<string>('DB_PASSWORD'),
         database: config.get<string>('DB_NAME'),
         autoLoadEntities: true,
+        ssl: true,
         synchronize: true,
       }),
     }),
@@ -33,7 +34,7 @@ import { APP_GUARD } from '@nestjs/core';
         serveRoot: '/uploads',
       },
       {
-        rootPath: join(__dirname, '..', 'portfolio-website'),
+        rootPath: join(__dirname, '..', 'view'),
         serveRoot: '/',
       },
     ),
